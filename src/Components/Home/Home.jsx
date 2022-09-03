@@ -1,8 +1,10 @@
-import React from 'react'
-import NavBar from '../Navbar'
-
+import React from "react";
+import NavBar from "../Navbar";
+import Loader from "../Loader";
 export default function Home() {
   return (
-   <NavBar   pitchDesk= {false} create={true}/>
-  )
+    <div>
+      <NavBar pitchDesk={false} create={true} />
+    </div>
+  );
 }
