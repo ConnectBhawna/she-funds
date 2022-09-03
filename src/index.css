@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.primaryColor{
+    @apply bg-[#002255];
+}
+
+.primaryTextColor{
+    @apply text-[#002255];
+}
