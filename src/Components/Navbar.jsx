@@ -1,9 +1,32 @@
 import { useState } from "react";
 import logo from "../../src/logo.svg";
 import { Link } from "react-router-dom";
-export default function NavBar() {
+import { useEffect } from "react";
+import Deso from "deso-protocol";
+const deso = new Deso();
+export default function NavBar({ pitchDesk, create }) {
   const [navbar, setNavbar] = useState(false);
+  const [hasLoggedIn, setHasLoggedIn] = useState(false);
+  const [publicKey, setPublicKey] = useState("");
+  const [dropdown, setDropdown] = useState(false);
+  const [loadingLoginStatus, setLoadingLoginStatus] = useState(true);
+  useEffect(() => {
+    const loggedInKey = localStorage.getItem("loggedInKey");
+    if (loggedInKey) {
+      setHasLoggedIn(true);
+      setPublicKey(loggedInKey);
+    }
+    setLoadingLoginStatus(false);
+  }, []);
 
+  const handleDesoLogin = async () => {
+    const response = await deso.identity.login(4);
+    if (response.key) {
+      localStorage.setItem("loggedInKey", response.key);
+      //reloading page cuz i am lazy to add cases to make it work without load as SPA
+      window.location.reload();
+    }
+  };
   return (
     <nav className='w-full  shadow-sm fixed bg-white border-b'>
       <div className='justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8'>
@@ -50,24 +73,68 @@ export default function NavBar() {
             </div>
           </div>
         </div>
+        {!loadingLoginStatus && (
         <div>
           <div
             className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
               navbar ? "block" : "hidden"
             }`}>
             <ul className='items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0'>
-              <li className='text-gray-600 hover:text-blue-600'>
-                <Link to='/home'>Pitch Desk</Link>
-              </li>
+              {pitchDesk && (
+                <li className='text-gray-600 hover:text-blue-600'>
+                  <Link to='/home'>Pitch Deck</Link>
+                </li>
+              )}
+              {create && (
+                <li className='text-gray-600 hover:text-blue-600'>
+                  <Link
+                    to='/pitch'
+                    className='bg-blue-500 text-white px-6 py-3 rounded-md shadow-sm hover:bg-blue-700'>
+                    Pitch <span className="mx-1 fas fa-pen"></span>
+                  </Link>
+                </li>
+              )}
 
-              <li className='text-gray-600 hover:text-blue-600'>
-                <button className='px-8 py-2 primaryColor text-white rounded-md shadow-md hover:shadow-xl'>
-                  Login
-                </button>
-              </li>
+              {!hasLoggedIn && (
+                <li className='text-gray-600 hover:text-blue-600'>
+                  <button
+                    className='px-8 py-2 primaryColor text-white rounded-md shadow-md hover:shadow-xl'
+                    onClick={handleDesoLogin}>
+                    Login
+                  </button>
+                </li>
+              )}
+              {hasLoggedIn && (
+                <li className='text-gray-600 hover:text-blue-600 flex justify-center space-x-1 items-center'>
+                  <button
+                    id='dropdownDefault'
+                    data-dropdown-toggle='dropdown'
+                    onClick={() => setDropdown(!dropdown)}>
+                    <img
+                      src={`https://node.deso.org/api/v0/get-single-profile-picture/${publicKey}?fallback=https://diamondapp.com/assets/img/default_profile_pic.png`}
+                      className='w-9 h-9 rounded-full'
+                      alt='profile'
+                    />
+                  </button>
+
+                  {dropdown && (
+                    <button
+                    className='px-6 py-2  text-red-500 underline hover:text-red-700'
+                    onClick={() => {
+                      localStorage.removeItem("loggedInKey");
+                      window.location.reload();
+                    }}>
+                    Logout
+                  </button>
+                  )}
+                </li>
+              )}
+
+              
             </ul>
           </div>
         </div>
+        )}
       </div>
     </nav>
   );
