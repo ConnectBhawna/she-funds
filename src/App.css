@@ -42,9 +42,13 @@
 }
 
 .primaryColor{
- background-color: #002255;
+ background-color: #ef476f;
 }
 
 .primaryTextColor{
  color: #002255;
+}
+
+.primaryHover{
+  background-color: #bd3957;
 }

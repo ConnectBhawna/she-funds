@@ -5,17 +5,15 @@ export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
 
   return (
-    <nav className='w-full  shadow-md fixed bg-white'>
+    <nav className='w-full  shadow-sm fixed bg-white border-b'>
       <div className='justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8'>
         <div>
           <div className='flex items-center justify-between py-3  md:block'>
-            <div className="flex items-center space-x-1">
-
-           
-            <img src = {logo} alt='logo' className='w-auto h-14 '/>
-            <a href='/'>
-              <h2 className='text-2xl font-bold'>Express It</h2>
-            </a>
+            <div className='flex items-center space-x-1'>
+              <img src={logo} alt='logo' className='w-auto h-14 ' />
+              <a href='/'>
+                <h2 className='text-2xl font-bold'>SheFunds</h2>
+              </a>
             </div>
             <div className='md:hidden'>
               <button
@@ -59,15 +57,14 @@ export default function NavBar() {
             }`}>
             <ul className='items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0'>
               <li className='text-gray-600 hover:text-blue-600'>
-               
-                <Link to = "/home">Feed</Link>
+                <Link to='/home'>Pitch Desk</Link>
               </li>
 
               <li className='text-gray-600 hover:text-blue-600'>
-               <Link className="px-4 py-2 primaryColor text-white rounded-md shadow-md hover:shadow-xl"
-               to="/home">Get Started</Link>
+                <button className='px-8 py-2 primaryColor text-white rounded-md shadow-md hover:shadow-xl'>
+                  Login
+                </button>
               </li>
-             
             </ul>
           </div>
         </div>
