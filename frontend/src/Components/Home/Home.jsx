@@ -35,13 +35,14 @@ export default function Home() {
           {loadSuccess &&
             postsFound.map((post, index) => {
               return (
-                <div key={index}>
+                <div key={index} className= "mx-auto container flex justify-center">
                   <Card postHashHex={post.postHashHex} />
                 </div>
               );
             })}
         </div>
-        {!loadSuccess && <div>Something went wrong. Please reload page</div>}
+
+        {!loadSuccess && !loading && <div>Something went wrong. Please reload page!</div>}
       </div>
     </div>
   );
