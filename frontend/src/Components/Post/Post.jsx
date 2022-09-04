@@ -47,7 +47,7 @@ export default function Post() {
     const postData = response.PostFound;
     setFundraisingGoal(postData.PostExtraData.FundraisingGoal);
     setPosterKey(postData.PosterPublicKeyBase58Check);
-    setPostBody(postData.Body);
+    setPostBody(postData.PostExtraData.body);
     let imgURL = "";
     try {
       imgURL = postData.ImageURLs[0];
@@ -56,7 +56,7 @@ export default function Post() {
     }
     setPostCover(imgURL);
     setPostUserName(postData.ProfileEntryResponse.Username);
-    setPostTitle(postData.PostExtraData.Title || "Post Title");
+    setPostTitle(postData.Body || "Post Title");
     setPostStats([
       postData.DiamondCount,
       postData.LikeCount,
