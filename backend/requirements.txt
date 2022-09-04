@@ -3,6 +3,6 @@ Flask-MySQLdb==0.2.0
 flask_cors
 python-decouple==3.5
 requests==2.26.0
-jwt
+PyJWT
 ecdsa
 base58

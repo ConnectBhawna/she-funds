@@ -29,7 +29,7 @@ class DesoApi {
     const data = {
       publicKey: publicKey,
       postHashHex: postHashHex,
-      timestampNanos: timestampNanos,
+      timestampNanos: Math.round(timestampNanos/1e9).toString(),
       jwtToken: jwtToken
     }
     try {
