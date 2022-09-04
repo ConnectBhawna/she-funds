@@ -92,7 +92,7 @@ export default function Post() {
     setFundraised(total);
     setProgressBar(
       <div
-        className='bg-green-700 text-md font-medium text-blue-100 text-center px-0.5 rounded '
+        className='bg-green-700 text-md font-medium text-blue-100 text-center px-0.5 rounded  '
         style={{
           width:
             ((total * 100) / postData.PostExtraData.FundraisingGoal)
@@ -221,7 +221,7 @@ export default function Post() {
                           />{" "}
                           raised
                         </div>
-                        <div className={` w-full  rounded`}>{progressBar}</div>
+                        <div className={` w-full  rounded bg-gray-100`}>{progressBar}</div>
                       </div>
                     )}
                     <br />

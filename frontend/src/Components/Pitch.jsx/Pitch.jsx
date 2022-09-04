@@ -196,9 +196,9 @@ export default function Create() {
                 min={0}
                 className={`  text-sm rounded-lg  block w-full p-2.5 mb-6  bg-white text-gray-800 focus:outline-none border`}
                 placeholder='e.g 100Tez'
-                value={(fundraisingAmt / 1e6).toString()}
+                value={fundraisingAmt .toString()}
                 onChange={(e) => {
-                  setFundraisingAmt(Math.abs(e.target.value * 1e6));
+                  setFundraisingAmt(Math.abs(e.target.value));
                   localStorage.setItem(
                     "fundraisingAmt",
                     Math.abs(e.target.value * 1e6)
