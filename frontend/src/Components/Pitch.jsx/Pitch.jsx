@@ -13,7 +13,7 @@ export default function Pitch() {
     <div>
       <NavBar pitchDesk={false} create={false} />
       <div>
-        <div>
+        <div className="pt-24">
           This is your Pitch Deck to 
         </div>
       </div>

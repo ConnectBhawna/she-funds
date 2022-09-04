@@ -91,7 +91,7 @@ export default function NavBar({ pitchDesk, create }) {
                     <button
                       onClick={() => {
                         if (hasLoggedIn) {
-                          window.location.href = "/create";
+                          window.location.href = "/pitch";
                         } else {
                           setShowModal(true);
                         }
