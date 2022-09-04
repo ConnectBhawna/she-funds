@@ -35,8 +35,9 @@ export default function Home() {
           {loadSuccess &&
             postsFound.map((post, index) => {
               return (
-                <div key={index} className= "mx-auto container flex justify-center">
-                  <Card postHashHex={post.postHashHex} />
+                <div key={index} className= "mx-auto container flex justify-center"
+              >
+                  <Card postHashHex={post.postHashHex}  />
                 </div>
               );
             })}
