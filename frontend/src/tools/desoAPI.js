@@ -40,6 +40,8 @@ class DesoApi {
       return null;
     }
   }
+
+  
   async submitTransaction(signedTransactionHex) {
     if (!signedTransactionHex) {
       console.log("signedTransactionHex is required");
