@@ -36,7 +36,7 @@ export default function NavBar({ pitchDesk, create }) {
         <div>
           <div className='flex items-center justify-between py-3  md:block'>
             <div className='flex items-center space-x-1'>
-              <img src={logo} alt='logo' className='w-auto h-14 ' />
+              <div className="h-14"></div>
               <a href='/'>
                 <h2 className='text-2xl font-bold'>SheFunds</h2>
               </a>
