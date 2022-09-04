@@ -241,9 +241,9 @@ export default function Create() {
                 <div className='relative p-6 flex-auto'>{modalBody}</div>
                 {postHashHex && (
                   <a
-                    href={`/post/${postHashHex}`}
+                    href={`/pitch/${postHashHex}`}
                     className='flex items-center justify-center underline text-blue-400'>
-                    View Post
+                    View Pitch
                   </a>
                 )}
                 {/*footer*/}
