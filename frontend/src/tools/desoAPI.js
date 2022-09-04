@@ -112,7 +112,7 @@ class DesoApi {
   getUploadClient() {
     if (client) return client;
     client = axios.create({
-      baseURL: "https://node.deso.org/api",
+      baseURL: "https://node.deso.org/api/v0",
       headers: {
         "Content-Type": "multipart/form-data",
         Accept: "application/json",

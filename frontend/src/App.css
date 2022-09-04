@@ -44,7 +44,9 @@
 .primaryColor{
  background-color: #ef476f;
 }
-
+.primaryColor:hover{
+  background-color: #bd3957;
+}
 .primaryTextColor{
  color: #002255;
 }
